@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'poppins' : ['Poppins', 'sans-serif'],
+      'inter' : ['Inter', 'sans-serif'],
+      'roboto': ['Roboto', 'sans-serif'],
+      'rancho': ['Rancho', 'cursive'],
+    },
   },
   daisyui: {
     themes: [],
