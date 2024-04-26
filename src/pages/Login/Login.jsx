@@ -7,13 +7,13 @@ const Login = () => {
     return (
         <div className=''>
             {/* <div className='w-2/5 mx-auto'> */}
-            <div className='grid grid-cols-1'>
+            <div className='grid grid-cols-1 '>
                 <div className=''>
                     {/* <div className='md:px-16 md:py-11'>
                         <img src="https://i.ibb.co/XzL4MNT/undraw-Art-lover-re-fn8g.png" alt="" />
                     </div> */}
                 </div>
-                <div className='w-[40%] mx-auto'>
+                <div className='w-[35%] mx-auto bg-white rounded-3xl shadow-lg'>
                     <div className='px-16 py-11'>
                         <div className='text-right mb-20'>
                             <p className='font-normal font-poppins'>Not A member? <Link className='text-[#6ca5f1]'>Register Now</Link></p>
