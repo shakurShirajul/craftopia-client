@@ -14,7 +14,7 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/">All Art & craft Items</Link></li>
             <li><Link to="/addItem">Add Craft Item</Link></li>
-            <li><Link to="/">My Art&Craft List</Link></li>
+            <li><Link to="/mylist">My Art&Craft List</Link></li>
         </>
     return (
         <div className="bg-white shadow-lg">

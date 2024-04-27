@@ -6,6 +6,8 @@ import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import SignUp from "../pages/SignUp/SignUp";
 import Home from "../pages/Home/Home";
 import ItemDetails from "../pages/ItemDetails/ItemDetails";
+import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: '/item/:id',
                 element: <ItemDetails></ItemDetails>
+            },
+            {
+                path: '/mylist',
+                element: <PrivateRoute><MyArtAndCraft></MyArtAndCraft></PrivateRoute>
             }
         ]
     },
