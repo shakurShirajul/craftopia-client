@@ -1,42 +1,39 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { useState } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { createContext } from "react";
 import auth from "../firebase/firebase.config";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 
+export const AuthContext = createContext(null);
 const AuthProviders = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
 
-    const signUp = (email, password) => {
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
-    }
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(null);
 
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
-
+    const signUp = (email, password) => {
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
     const githubSignIn = () => {
         setLoading(true);
         const githubProvider = new GithubAuthProvider();
         return signInWithPopup(auth, githubProvider);
     }
-
     const googleSignIn = () => {
         setLoading(true);
         const googleProvider = new GoogleAuthProvider();
         return signInWithPopup(auth, googleProvider);
     }
-
     const logOut = () => {
         setLoading(true);
-        return signOut(auth)
+        return signOut(auth);
     }
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log('user in the auth state changed');
             setUser(currentUser);
             setLoading(false);
         });
@@ -50,22 +47,16 @@ const AuthProviders = ({ children }) => {
         setUser,
         loading,
         setLoading,
-        logOut,
-        emailSignIn,
+        signIn,
+        signUp,
         githubSignIn,
         googleSignIn,
-        signUp,
-        updateUser,
-        // successToast,
-        // errorToast
+        logOut,
     }
     return (
-        <div>
-            <AuthContext.Provider value={authInfo}>
-                {children}
-            </AuthContext.Provider>
-        </div>
-    );
-};
-
+        <AuthContext.Provider value={authInfo}>
+            {children}
+        </AuthContext.Provider>
+    )
+}
 export default AuthProviders;

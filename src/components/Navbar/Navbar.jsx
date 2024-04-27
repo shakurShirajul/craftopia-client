@@ -1,7 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
+
 
 const Navbar = () => {
+
+    const { user } = useContext(AuthContext);
+
     const activeButton = "border-2 border-[#23BE0A] rounded-lg text-[#23BE0A] font-semibold";
+
     const NavLink =
         <>
             <li><Link to="/">Home</Link></li>
@@ -34,8 +41,26 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <Link to='/signin' className="btn">Login</Link>
-                        <Link to='/signup' className="btn">Register</Link>
+                        {
+                            user ?
+                                <div className="flex gap-2">
+                                    <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom">
+                                            <div className="w-12 rounded-full ">
+                                                <img alt="Tailwind CSS Navbar component" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <button className="bg-[#4f9f3e] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">Sign Out</button>
+                                    </div>
+                                </div>
+                                :
+                                <div className="flex items-center gap-1 md:gap-5">
+                                    <Link to="/signin"><button >Sign In</button></Link>
+                                    <Link to="/signup"><button >Sign Up</button></Link>
+                                </div>
+                        }
                     </div>
                 </div>
             </div>
