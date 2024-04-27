@@ -20,6 +20,8 @@ const AuthProviders = ({ children }) => {
     const githubSignIn = () => {
         setLoading(true);
         const githubProvider = new GithubAuthProvider();
+        githubProvider.addScope("read:user");
+        githubProvider.addScope("user:email");
         return signInWithPopup(auth, githubProvider);
     }
     const googleSignIn = () => {

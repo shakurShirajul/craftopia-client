@@ -1,38 +1,73 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 
 const AddCraftItem = () => {
 
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const submitForm = (event) => {
 
         event.preventDefault();
-        const imageURL = event.target.photoURL.value;
-        const itemName = event.target.itemName.value;
-        const subcategory = event.target.elements.subcategory.value;
+        const image = event.target.photoURL.value;
+        const item_name = event.target.itemName.value;
+        const subcategory_name = event.target.elements.subcategory.value;
         const customization = event.target.elements.customization.value;
         const stock = event.target.elements.stock.value;
         const price = event.target.price.value;
-        const processingTime = event.target.processingTime.value;
-        const description = event.target.description.value;
-        const itemRating = event.target.itemRating.value;
+        const processing_time = event.target.processingTime.value;
+        const short_description = event.target.description.value;
+        const rating = event.target.itemRating.value;
+        const userName = user?.displayName;
+        const email = user?.email;
 
-        console.log(
-            imageURL,
-            itemName,
-            subcategory,
-            customization,
-            stock,
-            price,
-            itemRating,
-            processingTime,
-            description,
-        )
+        fetch('http://localhost:5000/add-item', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userName,
+                email,
+                image,
+                item_name,
+                subcategory_name,
+                customization,
+                stock,
+                price,
+                rating,
+                processing_time,
+                short_description
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        title: "Item Added Successfully",
+                        text: "Add Another Item",
+                        icon: "success",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "YES",
+                        cancelButtonText: "NO",
 
-        
-
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            event.target.reset();
+                            navigate('/addItem');
+                        } else {
+                            navigate('/');
+                        }
+                    });
+                }
+            })
     }
+
+    console.log(user);
 
     return (
         <div className="w-2/4 mx-auto bg-white p-8 rounded-3xl shadow-lg my-10">
@@ -53,17 +88,17 @@ const AddCraftItem = () => {
                     </div>
                     <label className="space-y-1">
                         <p className="text-lg font-medium">Image:</p>
-                        <input type="text" placeholder="example.com/image.jpg" name="photoURL" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
+                        <input type="text" placeholder="example.com/image.jpg" name="photoURL" required className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
                     </label>
                     <div className="grid grid-cols-2 gap-x-5 gap-y-2">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Item Name:</p>
-                            <input type="text" placeholder="Item Name" name="itemName" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
+                            <input type="text" placeholder="Item Name" name="itemName" required className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
                         </label>
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Subcategory Name:</p>
-                            <select name="subcategory" className="select select-bordered w-full border-none bg-[#F3F3F3] focus:outline-none">
-                                <option disabled selected>Select Subcategory</option>
+                            <select name="subcategory" className="select select-bordered w-full border-none bg-[#F3F3F3] focus:outline-none" required>
+                                <option disabled>Select Subcategory</option>
                                 <option>Clay Sculpture</option>
                                 <option>Stone Sculpture</option>
                                 <option>Metal Sculpture</option>
@@ -76,16 +111,16 @@ const AddCraftItem = () => {
                     <div className="grid grid-cols-2 gap-x-5 gap-y-2">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Customization:</p>
-                            <select name="customization" className="select select-bordered w-full border-none  bg-[#F3F3F3] focus:outline-none">
-                                <option disabled selected>Select Customization</option>
+                            <select name="customization" className="select select-bordered w-full border-none  bg-[#F3F3F3] focus:outline-none" required>
+                                <option disabled>Select Customization</option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
                         </label>
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Stock Status:</p>
-                            <select name="stock" className="select select-bordered w-full border-none  bg-[#F3F3F3] focus:outline-none">
-                                <option disabled selected>Stock Status</option>
+                            <select name="stock" className="select select-bordered w-full border-none  bg-[#F3F3F3] focus:outline-none" required>
+                                <option disabled>Stock Status</option>
                                 <option>In stock</option>
                                 <option>Made to Order</option>
                             </select>
@@ -94,20 +129,20 @@ const AddCraftItem = () => {
                     <div className="grid grid-cols-3 gap-x-5">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Price:</p>
-                            <input type="text" placeholder="Price" name="price" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
+                            <input type="text" placeholder="Price" name="price" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" required/>
                         </label>
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Rating:</p>
-                            <input type="text" placeholder="Rating" name="itemRating" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
+                            <input type="text" placeholder="Rating" name="itemRating" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" required/>
                         </label>
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Processing Time:</p>
-                            <input name="processingTime" type="text" placeholder="Processing Time" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
+                            <input name="processingTime" type="text" placeholder="Processing Time" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" required/>
                         </label>
                     </div>
                     <label className="space-y-1">
                         <p className="text-lg font-medium">Short Description:</p>
-                        <textarea type="text" placeholder="Short Description" name="description" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg break-words" />
+                        <textarea type="text" placeholder="Short Description" name="description" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg break-words" required/>
                     </label>
                     <div className="flex justify-end">
                         <label >
