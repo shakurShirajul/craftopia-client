@@ -3,7 +3,7 @@ import CraftItems from '../../components/CraftItems/CraftItems';
 
 const Home = () => {
     return (
-        <div className='container mx-auto border-4'>
+        <div className='container mx-auto'>
             {/* <Banner></Banner> */}
             <CraftItems></CraftItems>
         </div>

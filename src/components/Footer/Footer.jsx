@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-[#2b3440] text-white">
+            <footer className="footer p-10 bg-white shadow-lg">
                 <aside>
                     <img src="https://i.ibb.co/YkGmY9r/logo1.jpg" alt="" className="w-[50px] h-[50px]" />
                     <p>Craftopia Ltd.<br />Providing reliable Art & Craft since 1992</p>
@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            <footer className="footer footer-center p-4 bg-[#2b3440] text-base-content">
+            <footer className="footer footer-center p-4 bg-white text-base-content">
                 <aside>
                     <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
                 </aside>
