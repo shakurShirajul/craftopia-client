@@ -1,6 +1,9 @@
+import { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
-const MyItemCard = ({ myCraftItem }) => {
-    // console.log(myCraftItem);
+
+import { AuthContext } from "../../providers/AuthProviders";
+const MyItemCard = ({ craftItem, handleDeleteButton }) => {
+
     const {
         _id,
         customization,
@@ -14,9 +17,7 @@ const MyItemCard = ({ myCraftItem }) => {
         subcategory_name,
         userName,
         stock
-    } = myCraftItem;
-
-    console.log(myCraftItem)
+    } = craftItem;
 
     return (
         <div>
@@ -42,8 +43,8 @@ const MyItemCard = ({ myCraftItem }) => {
                         </button>
 
                         <button
-                            className="py-3 rounded-lg text-white bg-[#0B6EFE] hover:border hover:border-[#0B6EFE] hover:bg-white hover:text-[#0B6EFE] font-medium px-5 w-full"
-                        // onClick={handleClick}
+                            className="py-3 rounded-lg text-white bg-[#d33] hover:border hover:border-[#d33] hover:bg-white hover:text-[#d33] font-medium px-5 w-full"
+                            onClick={()=>handleDeleteButton(craftItem)}
                         >
                             Delete
                         </button>
