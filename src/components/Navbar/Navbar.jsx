@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const activeButton = "border-2 border-[#23BE0A] rounded-lg text-[#23BE0A] font-semibold";
 
@@ -43,21 +43,25 @@ const Navbar = () => {
                     <div className="navbar-end">
                         {
                             user ?
-                                <div className="dropdown dropdown-end">
-                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
-                                            <img src={user.photoURL} />
+                                <div>
+
+                                    <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                            <div className="w-10 rounded-full">
+                                                <img src={user.photoURL} />
+                                            </div>
                                         </div>
+                                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-white border">
+                                            <li>
+                                                <a className="justify-between">
+                                                    Profile
+                                                </a>
+                                            </li>
+                                            <li><a>Settings</a></li>
+                                            <li><a>Logout</a></li>
+                                        </ul>
                                     </div>
-                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-white border">
-                                        <li>
-                                            <a className="justify-between">
-                                                Profile
-                                            </a>
-                                        </li>
-                                        <li><a>Settings</a></li>
-                                        <li><a>Logout</a></li>
-                                    </ul>
+                                    <button onClick={logOut} className="bg-[#4f9f3e] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">Sign Out</button>
                                 </div>
                                 :
                                 <div className="flex items-center gap-1 md:gap-5">
