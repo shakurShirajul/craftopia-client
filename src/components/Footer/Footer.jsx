@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-[#2b3440] text-white mt-10">
+            <footer className="footer p-10 bg-[#2b3440] text-white">
                 <aside>
                     <img src="https://i.ibb.co/YkGmY9r/logo1.jpg" alt="" className="w-[50px] h-[50px]" />
                     <p>Craftopia Ltd.<br />Providing reliable Art & Craft since 1992</p>

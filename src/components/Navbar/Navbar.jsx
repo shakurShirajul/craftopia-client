@@ -11,7 +11,7 @@ const Navbar = () => {
         </>
     return (
         <div className="bg-white shadow-lg">
-            <div className="container mx-auto font-roboto mb-10 ">
+            <div className="container mx-auto font-roboto">
                 <div className="navbar bg-base-100">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -34,8 +34,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn">Login</a>
-                        <a className="btn">Register</a>
+                        <Link to='/signin' className="btn">Login</Link>
+                        <Link to='/signup' className="btn">Register</Link>
                     </div>
                 </div>
             </div>

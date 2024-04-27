@@ -3,6 +3,8 @@ import Root from "../layout/Root";
 import Login from "../pages/Login/Login";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
+import SignUp from "../pages/SignUp/SignUp";
+import Home from "../pages/Home/Home";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -10,8 +12,16 @@ const router = createBrowserRouter([
         errorElement: <PageNotFound></PageNotFound>,
         children: [
             {
-                path: '/login',
-                element:<Login></Login>,
+                path: "/",
+                element: <Home></Home>
+            },
+            {
+                path: '/signin',
+                element: <Login></Login>,
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>,
             },
             {
                 path: '/addItem',
