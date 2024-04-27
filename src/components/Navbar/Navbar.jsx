@@ -43,17 +43,21 @@ const Navbar = () => {
                     <div className="navbar-end">
                         {
                             user ?
-                                <div className="flex gap-2">
-                                    <div className="dropdown dropdown-end">
-                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom">
-                                            <div className="w-12 rounded-full ">
-                                                <img alt="Tailwind CSS Navbar component" />
-                                            </div>
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user.photoURL} />
                                         </div>
                                     </div>
-                                    <div className="flex items-center">
-                                        <button className="bg-[#4f9f3e] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">Sign Out</button>
-                                    </div>
+                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-white border">
+                                        <li>
+                                            <a className="justify-between">
+                                                Profile
+                                            </a>
+                                        </li>
+                                        <li><a>Settings</a></li>
+                                        <li><a>Logout</a></li>
+                                    </ul>
                                 </div>
                                 :
                                 <div className="flex items-center gap-1 md:gap-5">
@@ -64,7 +68,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

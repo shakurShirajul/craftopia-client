@@ -1,9 +1,35 @@
 import LoginForm from '../../components/LoginForm/LoginForm';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
+    const { githubSignIn, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const navigateToHomePage = () => {
+        setTimeout(() => {
+            navigate(location?.state ? location.state : "/");
+        }, 2000);
+    }
+
+    const handleSocialSignIn = (socialMedia) => {
+        socialMedia()
+            .then(result => {
+                const loggedInUser = result.user;
+                // console.log(loggedInUser.photoURL);
+                // successToast('LOGIN SUCCESSFUL')
+                navigateToHomePage();
+            })
+            .catch((error) => {
+                // errorToast(error.message)
+                console.log('Error', error.message);
+            })
+    }
+
     return (
         <div className='container mx-auto my-10'>
             <div className='md:w-[70%] rounded-3xl mx-auto bg-cover shadow-xl border-none' style={{ backgroundImage: 'url(https://i.ibb.co/ws6T5QW/prince-abid-p-Ev-Pk-Pmu-Hzo-unsplash.jpg)' }}>
