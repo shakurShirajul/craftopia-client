@@ -2,18 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import MyItemCard from "../../components/MyItemCard/MyItemCard";
 import Swal from 'sweetalert2'
+import { ToastContainer } from "react-toastify";
 const MyArtAndCraft = () => {
 
     const [craftItems, setCraftItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const { user } = useContext(AuthContext);
+    const { user, successToast } = useContext(AuthContext);
 
     useEffect(() => {
         fetch('https://craftopia-server-ruddy.vercel.app/items')
             .then(res => res.json())
             .then(data => setCraftItems(data))
-            setLoading(false)
+        setLoading(false)
     }, [])
 
     const myCraftItems = craftItems.filter(item => item.email === user.email);
@@ -41,9 +42,9 @@ const MyArtAndCraft = () => {
                                 'Your Item has been deleted.',
                                 'success'
                             )
+                            successToast('Delation Successful')
                             const remainingData = craftItems.filter(item => item._id !== craftItem._id);
                             setCraftItems(remainingData);
-                            console.log(shakur);
                         }
                     })
             }
@@ -72,7 +73,7 @@ const MyArtAndCraft = () => {
                         </div>
                     )
             }
-
+            <ToastContainer/>
         </div>
     );
 };

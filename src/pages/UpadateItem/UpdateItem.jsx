@@ -7,7 +7,7 @@ const UpdateItem = () => {
 
     const navigate = useNavigate();
     const { id } = useParams();
-    const {updateToast} = useContext(AuthContext);
+    const { updateToast, errorToast } = useContext(AuthContext);
 
     const submitForm = (event) => {
 
@@ -46,8 +46,8 @@ const UpdateItem = () => {
                     updateToast('Item Updated Successfully');
                     event.target.reset();
                 }
-                else{
-                    updateToast('Add New Data');
+                else {
+                    errorToast('Add New Data');
                 }
             })
     }

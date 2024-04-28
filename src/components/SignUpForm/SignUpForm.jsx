@@ -5,12 +5,13 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
-// import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 const SignUpForm = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const { signUp, updateUser, errorToast, successToast } = useContext(AuthContext);
+
     const navigate = useNavigate();
 
     const navigateToHomePage = () => {
@@ -21,17 +22,21 @@ const SignUpForm = () => {
     }
 
     const handleSubmit = (data) => {
+        data.preventDefault();
         const upperCase = /[A-Z]/;
         const lowerCase = /[a-z]/;
 
+        const name = data.target.name.value;
+        const email = data.target.email.value;
+        const url = data.target.url.value;
+        const password = data.target.password.value;
 
-        const { name, email, url, password } = data;
-
+        
         const hasUpperCase = upperCase.test(password);
         const hasLowerCase = lowerCase.test(password);
         const isLengthValid = password.length >= 6;
-
-
+        
+        
         if (!hasUpperCase) {
             errorToast('Password must contain at least one uppercase letter.');
         }
@@ -41,14 +46,17 @@ const SignUpForm = () => {
         if (!isLengthValid) {
             errorToast('Password must be at least 6 characters long.');
         }
-
+        
         if (hasLowerCase && hasUpperCase && isLengthValid) {
+            console.log(name, email, url, password);
             signUp(email, password)
                 .then((userCredential) => {
                     updateUser(name, url)
                         .then(() => {
                             successToast('Registration Successful')
-                            reset();
+                            // reset();
+                            console.log("Shakur");
+                            data.target.reset();
                             navigateToHomePage();
                         }).catch((error) => {
                             errorToast(error.message)
@@ -63,7 +71,6 @@ const SignUpForm = () => {
 
     return (
         <div>
-            {/* <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-4'> */}
             <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-4'>
                 <label className='bg-[#ECECEC] py-4 pl-4 rounded-lg'>
                     <div className="flex items-center gap-7">
@@ -71,7 +78,7 @@ const SignUpForm = () => {
                         <div>
                             <p className="text-xs">Name: </p>
                             <div>
-                                <input type='text' placeholder='example name' required
+                                <input type='text' placeholder='example name' required name="name"
                                     className='bg-[#ECECEC] text-base focus:outline-none w-full'
                                 />
                             </div>
@@ -84,7 +91,7 @@ const SignUpForm = () => {
                         <div>
                             <p className="text-xs">Email:</p>
                             <div>
-                                <input type='email' placeholder='example@gmail.com' required
+                                <input type='email' placeholder='example@gmail.com' required name="email"
                                     className='bg-[#ECECEC] text-base focus:outline-none w-full'
                                 />
                             </div>
@@ -97,7 +104,7 @@ const SignUpForm = () => {
                         <div>
                             <p className="text-xs">Photo Url:</p>
                             <div>
-                                <input type='url' placeholder='example.com/image.jpg' required
+                                <input type='url' placeholder='example.com/image.jpg' required name="url"
                                     className='bg-[#ECECEC] text-base focus:outline-none w-full'
                                 />
                             </div>
@@ -113,6 +120,7 @@ const SignUpForm = () => {
                                 placeholder='***********'
                                 type={showPassword ? 'text' : 'password'}
                                 required
+                                name="password"
                                 className="bg-[#ECECEC] text-base focus:outline-none w-full"
                             />
                         </div>
@@ -130,7 +138,7 @@ const SignUpForm = () => {
                     <input type="submit" value='Login' className="py-4 rounded-2xl text-white bg-[#0B6EFE] hover:border hover:border-[#0B6EFE] hover:bg-white hover:text-[#0B6EFE] w-full" />
                 </label>
             </form>
-            {/* <ToastContainer /> */}
+            <ToastContainer />
         </div>
     );
 };

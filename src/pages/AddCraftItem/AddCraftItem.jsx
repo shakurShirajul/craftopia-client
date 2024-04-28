@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 const AddCraftItem = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, successToast } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const submitForm = (event) => {
@@ -45,24 +46,26 @@ const AddCraftItem = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    Swal.fire({
-                        title: "Item Added Successfully",
-                        text: "Add Another Item",
-                        icon: "success",
-                        showCancelButton: true,
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "YES",
-                        cancelButtonText: "NO",
+                    // Swal.fire({
+                    //     title: "Item Added Successfully",
+                    //     text: "Add Another Item",
+                    //     icon: "success",
+                    //     showCancelButton: true,
+                    //     confirmButtonColor: "#3085d6",
+                    //     cancelButtonColor: "#d33",
+                    //     confirmButtonText: "YES",
+                    //     cancelButtonText: "NO",
 
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            event.target.reset();
-                            navigate('/addItem');
-                        } else {
-                            navigate('/');
-                        }
-                    });
+                    // }).then((result) => {
+                    //     if (result.isConfirmed) {
+                    //         event.target.reset();
+                    //         navigate('/addItem');
+                    //     } else {
+                    //         navigate('/');
+                    //     }
+                    // });
+                    successToast("Successfully Data Added");
+                    event.target.reset();
                 }
             })
     }
@@ -151,6 +154,7 @@ const AddCraftItem = () => {
                     </div>
                 </form>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
