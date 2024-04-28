@@ -2,8 +2,9 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const AllArtAndCraftTable = ({ artAndCraftItems }) => {
+    console.log(artAndCraftItems)
     return (
-        <div data-them="dark" className="container mx-auto my-10 shadow-lg rounded-lg border none">
+        <div className="container mx-auto my-10 shadow-lg rounded-lg border none bg-white">
             <div className="overflow-x-auto">
                 <table className="table font-inter">
                     <thead className="text-lg border-b">
@@ -15,7 +16,6 @@ const AllArtAndCraftTable = ({ artAndCraftItems }) => {
                             <th>Price</th>
                             <th>Rating</th>
                             <th>Details</th>
-
                         </tr>
                     </thead>
                     <tbody className="">

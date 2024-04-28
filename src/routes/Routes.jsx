@@ -10,6 +10,8 @@ import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 import PrivateRoute from "./PrivateRoute";
 import UpdateItem from "../pages/UpadateItem/UpdateItem";
 import AllArtAndCraft from "../pages/AllArtAndCraft/AllArtAndCraft";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter([
     {
         path: "/",

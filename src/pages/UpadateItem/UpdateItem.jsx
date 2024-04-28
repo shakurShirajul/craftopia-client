@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Swal from 'sweetalert2'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../../providers/AuthProviders";
 const UpdateItem = () => {
 
     const navigate = useNavigate();
-
     const { id } = useParams();
-    console.log(id);
+    const {updateToast} = useContext(AuthContext);
 
     const submitForm = (event) => {
 
@@ -22,7 +23,8 @@ const UpdateItem = () => {
         const rating = event.target.itemRating.value;
 
         console.log(subcategory_name, customization, stock)
-        fetch(`https://craftopia-server-ruddy.vercel.app/${id}`, {
+        // fetch(`https://craftopia-server-ruddy.vercel.app/itemupdate/${id}`, {
+        fetch(`http://localhost:5000/itemupdate/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,13 +44,11 @@ const UpdateItem = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Item Updated Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-                    navigate('/mylist');
+                    updateToast('Item Updated Successfully');
+                    event.target.reset();
+                }
+                else{
+                    updateToast('Add New Data');
                 }
             })
     }
@@ -124,6 +124,7 @@ const UpdateItem = () => {
                     </div>
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };

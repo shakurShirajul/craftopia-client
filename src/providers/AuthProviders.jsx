@@ -2,6 +2,8 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import auth from "../firebase/firebase.config";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AuthContext = createContext(null);
 const AuthProviders = ({ children }) => {
@@ -44,6 +46,47 @@ const AuthProviders = ({ children }) => {
         }
     }, [])
 
+    // Toast Design
+
+    const updateToast = (toastMessage) => {
+        toast.info(toastMessage, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+    }
+
+    const successToast = (toastMessage) => {
+        toast.success(toastMessage, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+    };
+
+    const errorToast = (toastMessage) => {
+        toast.error(toastMessage, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+    };
+
     const authInfo = {
         user,
         setUser,
@@ -54,6 +97,9 @@ const AuthProviders = ({ children }) => {
         githubSignIn,
         googleSignIn,
         logOut,
+        updateToast,
+        successToast,
+        errorToast
     }
     return (
         <AuthContext.Provider value={authInfo}>
