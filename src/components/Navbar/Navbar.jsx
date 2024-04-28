@@ -133,7 +133,7 @@ const Navbar = () => {
             </div>
             <Tooltip
                 anchorSelect="#my-anchor-element-id"
-                content= {user.displayName? user?.displayName : 'Not Found'}
+                content= {user?.displayName}
             />
         </div >
     );

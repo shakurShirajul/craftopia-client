@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const ItemDetails = () => {
+    const { id } = useParams();
     const [craftItem, setCraftItem] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    const { id } = useParams();
 
     useEffect(() => {
         fetch(`https://craftopia-server-ruddy.vercel.app/item/${id}`)
@@ -13,7 +12,9 @@ const ItemDetails = () => {
             .then(data => setCraftItem(data))
         setLoading(false)
     }, [])
-    console.log(craftItem);
+
+    // console.log(craftItem);
+    
     return (
         <div>
             {

@@ -10,13 +10,11 @@ import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 import PrivateRoute from "./PrivateRoute";
 import UpdateItem from "../pages/UpadateItem/UpdateItem";
 import AllArtAndCraft from "../pages/AllArtAndCraft/AllArtAndCraft";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        // errorElement: <PageNotFound></PageNotFound>,
+        errorElement: <PageNotFound></PageNotFound>,
         children: [
             {
                 path: "/",
@@ -32,11 +30,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addItem',
-                element: <AddCraftItem></AddCraftItem>,
+                element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>,
             },
             {
                 path: '/item/:id',
-                element: <ItemDetails></ItemDetails>
+                element: <PrivateRoute><ItemDetails></ItemDetails></PrivateRoute>
             },
             {
                 path: '/mylist',
@@ -44,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/updateitem/:id',
-                element: <UpdateItem></UpdateItem>
+                element: <PrivateRoute><UpdateItem></UpdateItem></PrivateRoute>,
             },
             {
                 path: '/allartcrafts',

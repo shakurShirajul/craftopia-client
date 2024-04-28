@@ -2,51 +2,52 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import auth from "../firebase/firebase.config";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const AuthContext = createContext(null);
+
 const AuthProviders = ({ children }) => {
 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loader, setLoader] = useState(true);
 
     const signIn = (email, password) => {
-        setLoading(true);
+        setLoader(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     const signUp = (email, password) => {
-        setLoading(true);
+        setLoader(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const githubSignIn = () => {
-        setLoading(true);
+        setLoader(true);
         const githubProvider = new GithubAuthProvider();
         githubProvider.addScope("read:user");
         githubProvider.addScope("user:email");
         return signInWithPopup(auth, githubProvider);
     }
     const googleSignIn = () => {
-        setLoading(true);
+        setLoader(true);
         const googleProvider = new GoogleAuthProvider();
         return signInWithPopup(auth, googleProvider);
     }
-    const logOut = () => {
-        setLoading(true);
-        return signOut(auth);
-    }
-
     const updateUser = (name, imageURL) => {
         return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: imageURL
         })
     }
+    const logOut = () => {
+        setLoader(true);
+        return signOut(auth);
+    }
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            console.log("Changed");
             setUser(currentUser);
-            setLoading(false);
+            setLoader(false);
         });
         return () => {
             unSubscribe();
@@ -97,8 +98,8 @@ const AuthProviders = ({ children }) => {
     const authInfo = {
         user,
         setUser,
-        loading,
-        setLoading,
+        loader,
+        setLoader,
         signIn,
         signUp,
         updateUser,
