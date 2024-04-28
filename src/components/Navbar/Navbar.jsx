@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
 
@@ -7,14 +7,14 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
-    const activeButton = "border-2 border-[#23BE0A] rounded-lg text-[#23BE0A] font-semibold";
+    const activeButton = "border-b-2 border-[#0B6EFE]  text-[#0B6EFE] font-semibold";
 
-    const NavLink =
+    const navigationLink =
         <>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/">All Art & craft Items</Link></li>
-            <li><Link to="/addItem">Add Craft Item</Link></li>
-            <li><Link to="/mylist">My Art&Craft List</Link></li>
+            <li><NavLink to="/" className={({ isActive }) => isActive && activeButton}>Home</NavLink></li>
+            <li><NavLink to="/allartcrafts" className={({ isActive }) => isActive && activeButton}>All Art & craft Items</NavLink></li>
+            <li><NavLink to="/addItem" className={({ isActive }) => isActive && activeButton}>Add Craft Item</NavLink></li>
+            <li><NavLink to="/mylist" className={({ isActive }) => isActive && activeButton}>My Art&Craft List</NavLink></li>
         </>
     return (
         <div className="bg-white shadow-lg">
@@ -25,18 +25,18 @@ const Navbar = () => {
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-medium">
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52 font-medium">
                                 {
-                                    NavLink
+                                    navigationLink
                                 }
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-4xl font-rancho">Craftopia</a>
+                        <Link className="btn btn-ghost text-4xl font-rancho" to="/">Craftopia</Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1 text-lg">
                             {
-                                NavLink
+                                navigationLink
                             }
                         </ul>
                     </div>
@@ -61,12 +61,12 @@ const Navbar = () => {
                                             <li><a>Logout</a></li>
                                         </ul>
                                     </div>
-                                    <button onClick={logOut} className="bg-[#4f9f3e] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">Sign Out</button>
+                                    <button onClick={logOut} className="bg-[#0B6EFE] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">Sign Out</button>
                                 </div>
                                 :
-                                <div className="flex items-center gap-1 md:gap-5">
-                                    <Link to="/signin"><button >Sign In</button></Link>
-                                    <Link to="/signup"><button >Sign Up</button></Link>
+                                <div className="flex items-center gap-1 md:gap-2">
+                                    <Link to="/signin" className="border-[#0B6EFE] p-2 border-2 text-base md:p-3 text-[#0B6EFE] font-medium rounded-lg"><button >Sign In</button></Link>
+                                    <Link to="/signup" className="bg-[#0B6EFE] p-2 text-base md:p-3 text-white font-medium rounded-lg"><button >Sign Up</button></Link>
                                 </div>
                         }
                     </div>

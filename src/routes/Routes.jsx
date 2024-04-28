@@ -8,6 +8,7 @@ import Home from "../pages/Home/Home";
 import ItemDetails from "../pages/ItemDetails/ItemDetails";
 import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 import PrivateRoute from "./PrivateRoute";
+import UpdateItem from "../pages/UpadateItem/UpdateItem";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: '/mylist',
                 element: <PrivateRoute><MyArtAndCraft></MyArtAndCraft></PrivateRoute>
+            },
+            {
+                path:'/updateitem/:id',
+                element: <UpdateItem></UpdateItem>
             }
         ]
     },
