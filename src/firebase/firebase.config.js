@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA-lNOCibo6hOs2njsNlT9bqQ4MBrHydKA",
-  authDomain: "craftopia-12c6c.firebaseapp.com",
-  projectId: "craftopia-12c6c",
-  storageBucket: "craftopia-12c6c.appspot.com",
-  messagingSenderId: "361373741962",
-  appId: "1:361373741962:web:453579db9c2e59dfcc4e73"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
