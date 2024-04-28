@@ -9,6 +9,7 @@ import ItemDetails from "../pages/ItemDetails/ItemDetails";
 import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 import PrivateRoute from "./PrivateRoute";
 import UpdateItem from "../pages/UpadateItem/UpdateItem";
+import AllArtAndCraft from "../pages/AllArtAndCraft/AllArtAndCraft";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path:'/updateitem/:id',
                 element: <UpdateItem></UpdateItem>
+            },
+            {
+                path: '/allartcrafts',
+                element: <AllArtAndCraft></AllArtAndCraft>
             }
         ]
     },

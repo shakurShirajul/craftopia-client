@@ -43,8 +43,7 @@ const Navbar = () => {
                     <div className="navbar-end">
                         {
                             user ?
-                                <div>
-
+                                <div className="flex items-center">
                                     <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full">
@@ -52,21 +51,38 @@ const Navbar = () => {
                                             </div>
                                         </div>
                                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-white border">
-                                            <li>
-                                                <a className="justify-between">
-                                                    Profile
-                                                </a>
-                                            </li>
+                                            <li><a>Profile</a></li>
                                             <li><a>Settings</a></li>
                                             <li><a>Logout</a></li>
                                         </ul>
                                     </div>
-                                    <button onClick={logOut} className="bg-[#0B6EFE] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">Sign Out</button>
+                                    <button
+                                        onClick={logOut}
+                                        className="bg-[#0B6EFE] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">
+                                        Logout
+                                    </button>
                                 </div>
+                                // <div className="flex items-center">
+                                //     <div className="dropdown dropdown-end">
+                                //         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                //             <div className="w-10 rounded-full">
+                                //                 <img src={user.photoURL} alt={user.displayName} />
+                                //             </div>
+                                //             <div className="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center rounded-full bg-white opacity-0 hover:opacity-100 transition-opacity duration-200">
+                                //                 <span className="text-sm font-medium text-gray-800">{user.displayName}</span>
+                                //             </div>
+                                //         </div>
+                                //         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-white border">
+                                //             <li><a>Profile</a></li>
+                                //             <li><a>Settings</a></li>
+                                //             <li><a onClick={logOut}>Logout</a></li>
+                                //         </ul>
+                                //     </div>
+                                // </div>
                                 :
                                 <div className="flex items-center gap-1 md:gap-2">
-                                    <Link to="/signin" className="border-[#0B6EFE] p-2 border-2 text-base md:p-3 text-[#0B6EFE] font-medium rounded-lg"><button >Sign In</button></Link>
-                                    <Link to="/signup" className="bg-[#0B6EFE] p-2 text-base md:p-3 text-white font-medium rounded-lg"><button >Sign Up</button></Link>
+                                    <Link to="/signin" className="border-[#0B6EFE] p-2 border-2 text-base md:p-3 text-[#0B6EFE] font-medium rounded-lg"><button >Login</button></Link>
+                                    <Link to="/signup" className="bg-[#0B6EFE] p-2 text-base md:p-3 text-white font-medium rounded-lg"><button >Register</button></Link>
                                 </div>
                         }
                     </div>
