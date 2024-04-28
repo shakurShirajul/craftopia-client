@@ -4,9 +4,10 @@ import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
-    const { githubSignIn, googleSignIn } = useContext(AuthContext);
+    const { githubSignIn, googleSignIn, successToast, errorToast } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -20,12 +21,12 @@ const Login = () => {
         socialMedia()
             .then(result => {
                 const loggedInUser = result.user;
-                // console.log(loggedInUser.photoURL);
-                // successToast('LOGIN SUCCESSFUL')
+                console.log(loggedInUser.photoURL);
+                successToast('LOGIN SUCCESSFUL')
                 navigateToHomePage();
             })
             .catch((error) => {
-                // errorToast(error.message)
+                errorToast(error.message)
                 console.log('Error', error.message);
             })
     }
@@ -43,7 +44,7 @@ const Login = () => {
                             <p className='text-4xl text-[#0B6EFE]'>Welcome back you've been missed</p>
                         </div>
                         <div className=''>
-                            <LoginForm></LoginForm>
+                            <LoginForm navigateToHomePage={navigateToHomePage}></LoginForm>
                         </div>
                         <div>
                             <div className="flex justify-center items-center gap-9 my-5">
@@ -69,6 +70,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
