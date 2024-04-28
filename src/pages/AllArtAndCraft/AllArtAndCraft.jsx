@@ -4,7 +4,7 @@ import AllArtAndCraftTable from "../../components/AllArtAndCraftTable/AllArtAndC
 const AllArtAndCraft = () => {
     const [artAndCraftItems, setArtAndCraftItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/items')
+        fetch('https://craftopia-server-ruddy.vercel.app/items')
             .then(res => res.json())
             .then(data => setArtAndCraftItems(data))
     }, [])

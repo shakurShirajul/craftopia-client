@@ -36,7 +36,7 @@ const Login = () => {
                 <div className='flex justify-end'>
                     <div className='p-5 md:p-10 md:rounded-3xl bg-white'>
                         <div className='text-right mb-10'>
-                            <p className='font-normal font-poppins'>Not A member? <Link className='text-[#0B6EFE]'>Register Now</Link></p>
+                            <p className='font-normal font-poppins'>Not A member? <Link to='/signup' className='text-[#0B6EFE]'>Register Now</Link></p>
                         </div>
                         <div className='text-left font-rancho space-y-2 mb-10'>
                             <h1 className='text-5xl'>Hello Again!</h1>

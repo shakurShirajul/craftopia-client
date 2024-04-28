@@ -22,7 +22,7 @@ const UpdateItem = () => {
         const rating = event.target.itemRating.value;
 
         console.log(subcategory_name, customization, stock)
-        fetch(`http://localhost:5000/itemupdate/${id}`, {
+        fetch(`https://craftopia-server-ruddy.vercel.app/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

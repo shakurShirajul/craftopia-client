@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const CraftItems = () => {
     const [craftItems, setCraftItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/items')
+        fetch('https://craftopia-server-ruddy.vercel.app/items')
             .then(res => res.json())
             .then(data => setCraftItems(data))
     }, [])

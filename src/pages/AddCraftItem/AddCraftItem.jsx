@@ -23,7 +23,7 @@ const AddCraftItem = () => {
         const userName = user?.displayName;
         const email = user?.email;
 
-        fetch('http://localhost:5000/add-item', {
+        fetch('https://craftopia-server-ruddy.vercel.app/add-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
