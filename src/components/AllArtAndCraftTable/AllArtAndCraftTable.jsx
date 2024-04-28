@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AllArtAndCraftTable = ({ artAndCraftItems }) => {
     return (
-        <div className="container mx-auto my-10 shadow-lg rounded-lg border none bg-white">
+        <div data-them="dark" className="container mx-auto my-10 shadow-lg rounded-lg border none">
             <div className="overflow-x-auto">
                 <table className="table font-inter">
                     <thead className="text-lg border-b">

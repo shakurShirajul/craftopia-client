@@ -53,7 +53,7 @@ const UpdateItem = () => {
             })
     }
     return (
-        <div className="w-2/4 mx-auto bg-white p-8 rounded-3xl shadow-lg my-10">
+        <div className="w-2/4 mx-auto  p-8 rounded-3xl shadow-lg my-10">
             <div>
                 <div>
                     <h1 className="text-6xl font-rancho py-5">Update Craft Items</h1>

@@ -23,7 +23,7 @@ const MyItemCard = ({ craftItem, handleDeleteButton }) => {
 
     return (
         <div>
-            <div className="card w-96 rounded-2xl bg-white shadow-xl font-roboto my-10">
+            <div className="card w-96 rounded-2xl  shadow-xl font-roboto my-10">
                 <figure className="px-5 pt-5">
                     <img src={image} className="rounded-2xl aspect-square" />
                 </figure>
