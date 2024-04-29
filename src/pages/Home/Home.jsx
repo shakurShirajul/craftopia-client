@@ -1,11 +1,16 @@
 import React from 'react';
 import CraftItems from '../../components/CraftItems/CraftItems';
+import Banner from '../../components/Banner/Banner';
+import BoxOne from '../../components/BoxOne/BoxOne';
 
 const Home = () => {
     return (
-        <div className='container mx-auto'>
-            {/* <Banner></Banner> */}
-            <CraftItems></CraftItems>
+        <div>
+            <Banner></Banner>
+            <div className='container mx-auto'>
+                <CraftItems></CraftItems>
+                <BoxOne></BoxOne>
+            </div>
         </div>
     );
 };

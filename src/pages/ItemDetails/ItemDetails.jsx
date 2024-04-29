@@ -15,9 +15,7 @@ const ItemDetails = () => {
             .then(data => setCraftItem(data))
         setLoading(false)
     }, [])
-
-    // console.log(craftItem);
-
+    
     return (
         <div className='font-inter'>
             {

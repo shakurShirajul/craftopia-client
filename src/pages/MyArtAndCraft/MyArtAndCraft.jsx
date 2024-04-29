@@ -7,7 +7,6 @@ const MyArtAndCraft = () => {
 
     const [craftItems, setCraftItems] = useState([]);
     const [loading, setLoading] = useState(true);
-
     const { user, successToast } = useContext(AuthContext);
 
     useEffect(() => {
@@ -17,7 +16,17 @@ const MyArtAndCraft = () => {
         setLoading(false)
     }, [])
 
-    const myCraftItems = craftItems.filter(item => item.email === user.email);
+    let myCraftItems = craftItems.filter(item => item.email === user.email);
+
+    const handleOption = (value) => {
+        // console.log(value);
+        // fetch('https://craftopia-server-ruddy.vercel.app/items')
+        //     .then(res => res.json())
+        //     .then(data => setCraftItems(data))
+        // myCraftItems = craftItems.filter(item => item.email === user.email);
+        // const filterData = myCraftItems.filter(craftItem => craftItem.customization === value);
+        // setCraftItems(filterData);
+    }
 
     const handleDeleteButton = (craftItem) => {
         Swal.fire({
@@ -50,7 +59,6 @@ const MyArtAndCraft = () => {
             }
         })
     }
-
     return (
         <div>
             {
@@ -62,18 +70,28 @@ const MyArtAndCraft = () => {
                     )
                     :
                     (
-                        <div className="flex">
-                            <div className="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {
-                                    myCraftItems.map(craftItem =>
-                                        <MyItemCard craftItem={craftItem} handleDeleteButton={handleDeleteButton}></MyItemCard>
-                                    )
-                                }
+                        <div>
+                            <div className="flex justify-center mt-10 font-roboto">
+                                <select name="selectCustomization" className="select select-primary w-full max-w-xs focus:outline-none">
+                                    <option disabled selected className="text-base font-medium">Select Customization</option>
+                                    <option className="text-base font-medium" onClick={() => handleOption('Yes')}>Yes</option>
+                                    <option className="text-base font-medium" onClick={() => handleOption('No')}>No</option>
+                                </select>
+                            </div>
+                            <div className="flex">
+                                <div className="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {
+                                        myCraftItems.map(craftItem =>
+                                            <MyItemCard craftItem={craftItem} handleDeleteButton={handleDeleteButton}></MyItemCard>
+                                        )
+                                    }
+                                </div>
                             </div>
                         </div>
+
                     )
             }
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };

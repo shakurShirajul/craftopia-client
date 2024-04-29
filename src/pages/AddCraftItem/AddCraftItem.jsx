@@ -73,7 +73,7 @@ const AddCraftItem = () => {
     // console.log(user);
 
     return (
-        <div className="w-2/4 mx-auto p-8 rounded-3xl shadow-lg my-10">
+        <div className="md:w-2/4 mx-auto p-8 rounded-3xl shadow-lg my-10">
             <div>
                 <div>
                     <h1 className="text-6xl font-rancho py-5">Add Craft Items</h1>
@@ -93,7 +93,7 @@ const AddCraftItem = () => {
                         <p className="text-lg font-medium">Image:</p>
                         <input type="text" placeholder="example.com/image.jpg" name="photoURL" required className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
                     </label>
-                    <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+                    <div className="grid md:grid-cols-2 gap-x-5 gap-y-2">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Item Name:</p>
                             <input type="text" placeholder="Item Name" name="itemName" required className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
@@ -101,7 +101,7 @@ const AddCraftItem = () => {
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Subcategory Name:</p>
                             <select name="subcategory" className="select select-bordered w-full border-none bg-[#F3F3F3] focus:outline-none" required>
-                                <option disabled>Select Subcategory</option>
+                                <option disabled value="">Select Subcategory</option>
                                 <option>Clay Sculpture</option>
                                 <option>Stone Sculpture</option>
                                 <option>Metal Sculpture</option>
@@ -115,7 +115,7 @@ const AddCraftItem = () => {
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Customization:</p>
                             <select name="customization" className="select select-bordered w-full border-none  bg-[#F3F3F3] focus:outline-none" required>
-                                <option disabled>Select Customization</option>
+                                <option disabled value="">Select Customization</option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
@@ -129,7 +129,7 @@ const AddCraftItem = () => {
                             </select>
                         </label>
                     </div>
-                    <div className="grid grid-cols-3 gap-x-5">
+                    <div className="grid md:grid-cols-3 gap-x-5">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Price:</p>
                             <input type="text" placeholder="Price" name="price" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" required/>
