@@ -26,7 +26,7 @@ const Banner = () => {
     </>
 
     return (
-        <div>
+        <div className='relative'>
             <Swiper
                 spaceBetween={50}
                 slidesPerView={1}
@@ -44,7 +44,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className='relative w-full'>
                         <div>
-                            <img src="https://i.ibb.co/wN2KkyM/slider2.jpg" className="aspect-video lg:h-[75vh] w-full" alt="" />
+                            <img src="https://i.ibb.co/wN2KkyM/slider2.jpg" className="aspect-video lg:h-[75vh] w-full z-0" alt="" />
                         </div>
                         <div className='absolute top-1/3 left-20 text-white lg:space-y-2'>
                             {

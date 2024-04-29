@@ -79,7 +79,7 @@ const AddCraftItem = () => {
                     <h1 className="text-6xl font-rancho py-5">Add Craft Items</h1>
                 </div>
                 <form onSubmit={submitForm} className="grid grid-cols-1 space-y-2 font-roboto">
-                    <div className="grid grid-cols-2 gap-x-5">
+                    <div className="grid md:grid-cols-2 gap-x-5">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">User Name:</p>
                             <input type="text" placeholder="example name" name="name" disabled className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" value={user?.displayName} />
