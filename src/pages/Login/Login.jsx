@@ -22,7 +22,6 @@ const Login = () => {
         socialMedia()
             .then(result => {
                 const loggedInUser = result.user;
-                // console.log(loggedInUser.photoURL);
                 successToast('LOGIN SUCCESSFUL')
                 navigateToHomePage();
             })
@@ -40,14 +39,14 @@ const Login = () => {
             <div className='font-inter container mx-auto md:my-10'>
                 <div className='md:w-[70%] rounded-3xl mx-auto bg-cover shadow-xl' style={{ backgroundImage: 'url(https://i.ibb.co/ws6T5QW/prince-abid-p-Ev-Pk-Pmu-Hzo-unsplash.jpg)' }}>
                     <div className="md:flex md:justify-between">
-                        <div className="hidden md:flex items-center md:w-[55%]">
+                        <div className="hidden lg:flex items-center md:w-[55%]">
                             <div className="p-10 text-white font-medium font-rancho ">
                                 <h1 className="text-4xl md:text-8xl">
                                     Welcome back to the heart of creativity.
                                 </h1>
                             </div>
                         </div>
-                        <div className="md:w-[45%]">
+                        <div className="w-full lg:w-[45%]">
                             <div className="bg-white p-10 md:rounded-3xl shadow-xl">
                                 <div className='text-right mb-10'>
                                     <p className='font-normal font-poppins'>Not A member? <Link to='/signup' className='text-[#0B6EFE]'>Register Now</Link></p>
