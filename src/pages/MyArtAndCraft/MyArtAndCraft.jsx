@@ -20,8 +20,8 @@ const MyArtAndCraft = () => {
                 const filterData = data.filter(item => (item.email === user.email))
                 setCraftItems(filterData);
                 setBackupItem(filterData);
+                setLoading(false);
             })
-        setLoading(false)
     }, [])
 
     const handleOption = (value) => {

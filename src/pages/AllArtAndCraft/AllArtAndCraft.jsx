@@ -9,8 +9,11 @@ const AllArtAndCraft = () => {
     useEffect(() => {
         fetch('https://craftopia-server-ruddy.vercel.app/items')
             .then(res => res.json())
-            .then(data => setArtAndCraftItems(data))
-        setLoading(false);
+            .then(data => {
+                setArtAndCraftItems(data);
+                setLoading(false);
+            })
+
     }, [])
     return (
         <div>

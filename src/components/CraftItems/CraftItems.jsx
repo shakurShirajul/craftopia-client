@@ -6,10 +6,12 @@ const CraftItems = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('https://craftopia-server-ruddy.vercel.app/items')
+        const fetchedData = fetch('https://craftopia-server-ruddy.vercel.app/items')
             .then(res => res.json())
-            .then(data => setCraftItems(data))
-        setLoading(false);
+            .then(data => {
+                setCraftItems(data);
+                setLoading(false);
+            })
     }, [])
     return (
         <div className="my-10 ">

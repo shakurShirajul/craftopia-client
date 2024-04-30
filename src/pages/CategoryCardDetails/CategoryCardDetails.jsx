@@ -11,8 +11,11 @@ const CategoryCardDetails = () => {
     useEffect(() => {
         fetch(`https://craftopia-server-ruddy.vercel.app/subcategory/items/${id}`)
             .then(res => res.json())
-            .then(data => setDetails(data))
-        setLoading(false)
+            .then(data => {
+                setDetails(data);
+                setLoading(false);
+            })
+
     }, [])
 
     const {

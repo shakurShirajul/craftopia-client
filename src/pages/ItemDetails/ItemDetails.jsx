@@ -13,8 +13,10 @@ const ItemDetails = () => {
     useEffect(() => {
         fetch(`https://craftopia-server-ruddy.vercel.app/item/${id}`)
             .then(res => res.json())
-            .then(data => setCraftItem(data))
-        setLoading(false)
+            .then(data => {
+                setCraftItem(data);
+                setLoading(false);
+            })
     }, [])
 
     return (

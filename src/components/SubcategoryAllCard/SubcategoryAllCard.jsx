@@ -11,8 +11,11 @@ const SubcategoryAllCard = () => {
     useEffect(() => {
         fetch(`https://craftopia-server-ruddy.vercel.app/subcategory/items`)
             .then(res => res.json())
-            .then(data => setDatas(data))
-        setLoading(false)
+            .then(data => {
+                setDatas(data)
+                setLoading(false)
+            })
+
     }, [])
 
     const filterData = datas.filter(data => data.subcategory_Name === id);
