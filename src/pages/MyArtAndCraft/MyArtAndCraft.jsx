@@ -1,31 +1,32 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import MyItemCard from "../../components/MyItemCard/MyItemCard";
 import Swal from 'sweetalert2'
 import { ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 const MyArtAndCraft = () => {
 
     const [craftItems, setCraftItems] = useState([]);
+    const [backupItem, setBackupItem] = useState([]);
+
     const [loading, setLoading] = useState(true);
+
     const { user, successToast } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch('https://craftopia-server-ruddy.vercel.app/items')
+        fetch('http://localhost:5000/items')
             .then(res => res.json())
-            .then(data => setCraftItems(data))
+            .then(data => {
+                const filterData = data.filter(item => (item.email === user.email))
+                setCraftItems(filterData);
+                setBackupItem(filterData);
+            })
         setLoading(false)
     }, [])
 
-    let myCraftItems = craftItems.filter(item => item.email === user.email);
-
     const handleOption = (value) => {
-        // console.log(value);
-        // fetch('https://craftopia-server-ruddy.vercel.app/items')
-        //     .then(res => res.json())
-        //     .then(data => setCraftItems(data))
-        // myCraftItems = craftItems.filter(item => item.email === user.email);
-        // const filterData = myCraftItems.filter(craftItem => craftItem.customization === value);
-        // setCraftItems(filterData);
+        const filterItem = backupItem.filter(item => item.customization === value)
+        setCraftItems(filterItem);
     }
 
     const handleDeleteButton = (craftItem) => {
@@ -39,7 +40,7 @@ const MyArtAndCraft = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://craftopia-server-ruddy.vercel.app/item/${craftItem._id}`, {
+                fetch(`http://localhost:5000/item/${craftItem._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -61,6 +62,9 @@ const MyArtAndCraft = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>My Craft | Craftopia</title>
+            </Helmet>
             {
                 loading ?
                     (
@@ -81,7 +85,7 @@ const MyArtAndCraft = () => {
                             <div className="flex">
                                 <div className="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {
-                                        myCraftItems.map(craftItem =>
+                                        craftItems.map(craftItem =>
                                             <MyItemCard craftItem={craftItem} handleDeleteButton={handleDeleteButton}></MyItemCard>
                                         )
                                     }

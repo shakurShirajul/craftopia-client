@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 const UpdateItem = () => {
 
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const UpdateItem = () => {
         const rating = event.target.itemRating.value;
 
         console.log(subcategory_name, customization, stock)
-        fetch(`https://craftopia-server-ruddy.vercel.app/itemupdate/${id}`, {
+        fetch(`http://localhost:5000/itemupdate/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,17 +53,20 @@ const UpdateItem = () => {
             })
     }
     return (
-        <div className="w-2/4 mx-auto  p-8 rounded-3xl shadow-lg my-10">
+        <div className="md:w-2/4 mx-auto  p-8 rounded-3xl shadow-lg my-10">
+            <Helmet>
+                <title>Update | Craftopia</title>
+            </Helmet>
             <div>
                 <div>
-                    <h1 className="text-6xl font-rancho py-5">Update Craft Items</h1>
+                    <h1 className="text-5xl md:text-6xl font-rancho py-5">Update Craft Items</h1>
                 </div>
                 <form onSubmit={submitForm} className="grid grid-cols-1 space-y-2 font-roboto">
                     <label className="space-y-1">
                         <p className="text-lg font-medium">Image:</p>
-                        <input type="text" placeholder="example.com/image.jpg" name="photoURL" required className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
+                        <input type="url" placeholder="example.com/image.jpg" name="photoURL" required className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
                     </label>
-                    <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+                    <div className="grid md:grid-cols-2 gap-x-5 gap-y-2">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Item Name:</p>
                             <input type="text" placeholder="Item Name" name="itemName" required className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" />
@@ -98,7 +102,7 @@ const UpdateItem = () => {
                             </select>
                         </label>
                     </div>
-                    <div className="grid grid-cols-3 gap-x-5">
+                    <div className="grid md:grid-cols-3 gap-x-5">
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Price:</p>
                             <input type="text" placeholder="Price" name="price" className="pl-4 py-3 bg-[#F3F3F3] w-full rounded-lg" required />
@@ -118,7 +122,7 @@ const UpdateItem = () => {
                     </label>
                     <div className="flex justify-end">
                         <label >
-                            <input type="submit" value="Update Item" className="rounded-xl py-3 text-white bg-[#0B6EFE] px-4 font-medium text-lg" />
+                            <input type="submit" value="Update Item" className="cursor-pointer rounded-xl py-3 text-white bg-[#0B6EFE] px-4 font-medium text-lg" />
                         </label>
                     </div>
                 </form>

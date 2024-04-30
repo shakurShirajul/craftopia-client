@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AllArtAndCraftTable = ({ artAndCraftItems }) => {
     console.log(artAndCraftItems)
     return (
-        <div className="container mx-auto my-10 shadow-lg rounded-lg border none bg-white">
+        <div className="container mx-auto my-10 shadow-lg rounded-lg border none ">
             <div className="overflow-x-auto">
                 <table className="table font-inter">
                     <thead className="text-lg border-b">
@@ -44,7 +44,7 @@ const AllArtAndCraftTable = ({ artAndCraftItems }) => {
                                             {item.rating}</div>
                                     </th>
                                     <th>
-                                        <Link to={`/item/${item._id}`}> <button className="underline text-[#0B6EFE]">Details</button></Link>
+                                        <Link to={`/item/${item._id}`}> <button className="cursor-pointer rounded-xl py-3 text-white bg-[#0B6EFE] px-4 font-medium text-lg">Details</button></Link>
                                     </th>
                                 </tr>
                             )

@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const AddCraftItem = () => {
 
@@ -24,7 +25,7 @@ const AddCraftItem = () => {
         const userName = user?.displayName;
         const email = user?.email;
 
-        fetch('https://craftopia-server-ruddy.vercel.app/add-item', {
+        fetch('http://localhost:5000/add-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,37 +47,20 @@ const AddCraftItem = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    // Swal.fire({
-                    //     title: "Item Added Successfully",
-                    //     text: "Add Another Item",
-                    //     icon: "success",
-                    //     showCancelButton: true,
-                    //     confirmButtonColor: "#3085d6",
-                    //     cancelButtonColor: "#d33",
-                    //     confirmButtonText: "YES",
-                    //     cancelButtonText: "NO",
-
-                    // }).then((result) => {
-                    //     if (result.isConfirmed) {
-                    //         event.target.reset();
-                    //         navigate('/addItem');
-                    //     } else {
-                    //         navigate('/');
-                    //     }
-                    // });
                     successToast("Successfully Data Added");
                     event.target.reset();
                 }
             })
     }
 
-    // console.log(user);
-
     return (
-        <div className="md:w-2/4 mx-auto p-8 rounded-3xl shadow-lg my-10">
+        <div className="lg:w-2/4 mx-auto p-8 rounded-3xl shadow-lg my-10">
+            <Helmet>
+                <title>Add Item | Craftopia</title>
+            </Helmet>
             <div>
                 <div>
-                    <h1 className="text-6xl font-rancho py-5">Add Craft Items</h1>
+                    <h1 className="text-5xl md:text-6xl font-rancho py-5">Add Craft Items</h1>
                 </div>
                 <form onSubmit={submitForm} className="grid grid-cols-1 space-y-2 font-roboto">
                     <div className="grid md:grid-cols-2 gap-x-5">
@@ -101,7 +85,7 @@ const AddCraftItem = () => {
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Subcategory Name:</p>
                             <select name="subcategory" className="select select-bordered w-full border-none bg-[#F3F3F3] focus:outline-none" required>
-                                <option disabled value="">Select Subcategory</option>
+                                <option disabled selected value="">Select Subcategory</option>
                                 <option>Clay Sculpture</option>
                                 <option>Stone Sculpture</option>
                                 <option>Metal Sculpture</option>
@@ -115,7 +99,7 @@ const AddCraftItem = () => {
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Customization:</p>
                             <select name="customization" className="select select-bordered w-full border-none  bg-[#F3F3F3] focus:outline-none" required>
-                                <option disabled value="">Select Customization</option>
+                                <option disabled selected value="">Select Customization</option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
@@ -123,7 +107,7 @@ const AddCraftItem = () => {
                         <label className="space-y-1">
                             <p className="text-lg font-medium">Stock Status:</p>
                             <select name="stock" className="select select-bordered w-full border-none  bg-[#F3F3F3] focus:outline-none" required>
-                                <option disabled>Stock Status</option>
+                                <option disabled selected>Stock Status</option>
                                 <option>In stock</option>
                                 <option>Made to Order</option>
                             </select>

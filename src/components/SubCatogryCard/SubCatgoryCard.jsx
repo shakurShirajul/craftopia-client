@@ -1,24 +1,24 @@
-import { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-import { AuthContext } from "../../providers/AuthProviders";
-import { Link, useNavigate } from "react-router-dom";
-const MyItemCard = ({ craftItem, handleDeleteButton }) => {
-
-    const {
-        _id,
-        customization,
-        image,
-        item_name,
-        price,
-        rating,
-        stock
-    } = craftItem;
+const SubCatgoryCard = ({ data }) => {
 
     const navigate = useNavigate();
 
-    const handleUpdateButton = () => {
-        navigate(`/updateitem/${_id}`)
+    const {
+        _id,
+        image,
+        item_name,
+        subcategory_Name,
+        short_description,
+        price,
+        rating,
+        processing_time
+    } = data;
+
+    const handleNavigateDetailsPage = () =>{
+        console.log("shakur")
+        navigate(`/subcategory/card/details/${_id}`)
     }
 
     return (
@@ -30,25 +30,23 @@ const MyItemCard = ({ craftItem, handleDeleteButton }) => {
                 <div className="p-5">
                     <h2 className="card-title">{item_name}</h2>
                     <div className="flex justify-between items-center my-2">
+                        <h1 className="font-medium">Sub Category: <span className="font-normal">{subcategory_Name}</span></h1>
                         <h1 className="flex items-center gap-2"><FaStar className="text-orange-500 text-lg" /> <span className="text-lg">{rating}</span></h1>
-                        <h1 className="text-[#0B6EFE] text-xl font-medium"><span>$ {price}</span></h1>
+                    </div>
+                    <div className="p-2">
+                        <h1><span className="font-medium">Description:</span> {short_description}</h1>
                     </div>
                     <div className="flex justify-between py-2 border-y-2 border-dashed">
-                        <h1> {customization}</h1>
-                        <h1 className="">{stock}</h1>
+                        <h1><span className="font-medium">Time: </span>{processing_time}</h1>
+                        <h1 className="text-[#0B6EFE] text-xl font-medium"><span>$ {price}</span></h1>
                     </div>
-                    <div className="flex gap-5 mt-2">
+                    <div className="pt-2">
                         <button
                             className="py-3 rounded-lg text-white bg-[#0B6EFE] hover:border hover:border-[#0B6EFE] hover:bg-white hover:text-[#0B6EFE] font-medium px-5 w-full"
-                            onClick={() => handleUpdateButton()}
+                            // onClick={() => handleDeleteButton(craftItem)}
+                            onClick={()=>handleNavigateDetailsPage()}
                         >
-                            Update
-                        </button>
-                        <button
-                            className="py-3 rounded-lg text-white bg-[#d33] hover:border hover:border-[#d33] hover:bg-white hover:text-[#d33] font-medium px-5 w-full"
-                            onClick={() => handleDeleteButton(craftItem)}
-                        >
-                            Delete
+                            View Details
                         </button>
                     </div>
                 </div>
@@ -57,4 +55,4 @@ const MyItemCard = ({ craftItem, handleDeleteButton }) => {
     );
 };
 
-export default MyItemCard;
+export default SubCatgoryCard;

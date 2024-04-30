@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 
-const LoginForm = ({navigateToHomePage}) => {
+const LoginForm = ({ navigateToHomePage }) => {
 
     const [showPassword, setShowPassword] = useState(false);
     const { signIn, successToast, errorToast } = useContext(AuthContext);
@@ -49,17 +49,15 @@ const LoginForm = ({navigateToHomePage}) => {
                     <label className='flex items-center bg-[#ECECEC] p-4 rounded-lg'>
                         <div className="flex items-center  gap-7">
                             <FaKey className="text-2xl" />
-                            <div className=''>
+                            <div>
                                 <p className="text-xs">Password:</p>
-                                <div className=''>
-                                    <input
-                                        type={showPassword ? 'text' : 'password'}
-                                        placeholder='***********'
-                                        required
-                                        name="password"
-                                        className='bg-[#ECECEC] text-base focus:outline-none w-full'
-                                    />
-                                </div>
+                                <input
+                                    placeholder='***********'
+                                    type={showPassword ? 'text' : 'password'}
+                                    required
+                                    name="password"
+                                    className='bg-[#ECECEC] text-base focus:outline-none w-full'
+                                />
                             </div>
                         </div>
                         <div>
@@ -67,7 +65,7 @@ const LoginForm = ({navigateToHomePage}) => {
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showPassword ? <FaEyeSlash/> : <FaEye/>}
                             </button>
                         </div>
                     </label>

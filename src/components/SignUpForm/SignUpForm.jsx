@@ -110,7 +110,7 @@ const SignUpForm = () => {
                         </div>
                     </div>
                 </label>
-                <label className='flex items-center bg-[#ECECEC] p-4 rounded-lg'>
+                <label className='flex items-center justify-between bg-[#ECECEC] p-4 rounded-lg'>
                     <div className="flex items-center gap-7">
                         <FaKey className="text-2xl" />
                         <div>

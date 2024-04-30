@@ -4,7 +4,7 @@ const Footer = () => {
             <footer className="footer p-10">
                 <aside>
                     <img src="https://i.ibb.co/YkGmY9r/logo1.jpg" alt="" className="w-[50px] h-[50px]" />
-                    <p>Craftopia Ltd.<br />Providing reliable Art & Craft since 1992</p>
+                    <p><span className="font-rancho font-bold text-lg">Craftopia Ltd.</span><br />Providing reliable Art & Craft since 1992</p>
                 </aside>
                 <nav>
                     <h6 className="footer-title">Services</h6>
@@ -14,11 +14,9 @@ const Footer = () => {
                     <a className="link link-hover">Advertisement</a>
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <h6 className="footer-title">Contact Us</h6>
+                    <h1 className="text-sm font-medium">Level-35, 34, Jackson Heights, Newyork</h1>
+                    <h1 className="text-sm font-medium"> Support: help@carftopia.com</h1>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Social</h6>
@@ -31,7 +29,7 @@ const Footer = () => {
             </footer>
             <footer className="p-4">
                 <aside>
-                    <p className="text-center">Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+                    <p className="text-center">Copyright © 2024 - All right reserved by Craftopia Industries Ltd</p>
                 </aside>
             </footer>
         </div>

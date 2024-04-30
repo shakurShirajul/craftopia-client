@@ -7,6 +7,7 @@ import { Tooltip } from 'react-tooltip';
 const Navbar = () => {
 
     const [theme, setTheme] = useState('light')
+    const PLACES = ['top', 'top-start', 'top-end', 'right', 'right-start', 'right-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end']
 
     const handleTheme = (event) => {
         if (event.target.checked) {
@@ -33,7 +34,7 @@ const Navbar = () => {
             <li><NavLink to="/mylist" className={({ isActive }) => isActive && activeButton}>My Art&Craft List</NavLink></li>
         </>
     return (
-        <div className="shadow-lg">
+        <div className="shadow-sm">
             <div className="container mx-auto font-roboto">
                 <div className="navbar bg-base-100">
                     <div className="navbar-start">
@@ -99,20 +100,11 @@ const Navbar = () => {
                             user ?
                                 (
                                     <div className="flex items-center">
-                                        <a id="my-anchor-element-id">
-                                            <div className="dropdown dropdown-end">
-                                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                                    <div className="w-10 rounded-full">
-                                                        <img src={user.photoURL} />
-                                                    </div>
-                                                </div>
-                                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow rounded-box w-52 bg-white border">
-                                                    <li><a>Profile</a></li>
-                                                    <li><a>Settings</a></li>
-                                                    <li><a>Logout</a></li>
-                                                </ul>
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user.displayName}>
+                                            <div className="w-10 rounded-full">
+                                                <img src={user.photoURL} />
                                             </div>
-                                        </a>
+                                        </div>
                                         <button
                                             onClick={logOut}
                                             className="bg-[#0B6EFE] p-2 text-sm md:p-3 md:text-base text-white font-medium rounded-lg">
@@ -131,10 +123,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <Tooltip
-                anchorSelect="#my-anchor-element-id"
-                content= {user?.displayName}
-            />
         </div >
     );
 };

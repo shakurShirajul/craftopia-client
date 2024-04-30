@@ -10,6 +10,8 @@ import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 import PrivateRoute from "./PrivateRoute";
 import UpdateItem from "../pages/UpadateItem/UpdateItem";
 import AllArtAndCraft from "../pages/AllArtAndCraft/AllArtAndCraft";
+import SubcategoryAllCard from "../components/SubcategoryAllCard/SubcategoryAllCard";
+import CategoryCardDetails from "../pages/CategoryCardDetails/CategoryCardDetails";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
             {
                 path: '/allartcrafts',
                 element: <AllArtAndCraft></AllArtAndCraft>
+            },
+            {
+                path: '/subcategory/itemcard/:id',
+                element: <SubcategoryAllCard></SubcategoryAllCard>
+            },
+            {
+                path: '/subcategory/card/details/:id',
+                element: <CategoryCardDetails></CategoryCardDetails>
             }
         ]
     },

@@ -1,44 +1,34 @@
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Typewriter } from 'react-simple-typewriter'
 import 'swiper/css';
 import 'swiper/css/effect-fade'
 import 'swiper/swiper-bundle.css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Fade, Slide } from 'react-awesome-reveal';
 const Banner = () => {
     const bannerTitle = <>
-        <p className='text-4xl lg:text-7xl font-extrabold font-rancho'>
-            {''}
-            <Typewriter
-                words={['Welcome To Craftopia ','Explore The World Of Art & Crafts']}
-                loop={50}
-                cursor
-                cursorStyle='_'
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1500}
-            />
-        </p>
-        <p className='font-poppins font-semibold text-2xl lg:text-2xl text-white'>
-            {/* Explore a world where imagination meets craftsmanship, and every creation tells a story. */}
-        </p>
+        <Slide>
+            <p className='text-4xl lg:text-7xl font-extrabold font-rancho'>Welcome To Craftopia</p>
+        </Slide>
+        <Fade delay={1e3} cascade damping={1e-1}>
+            <p className='font-poppins font-semibold text-2xl lg:text-2xl text-white'>Explore The World Of Art & Crafts</p>
+        </Fade>
     </>
 
     return (
-        <div className='relative'>
+        <div className='z-[0]'>
             <Swiper
                 spaceBetween={50}
                 slidesPerView={1}
                 navigation={true}
                 pagination={{ clickable: true }}
                 autoplay={{
-                    delay: 500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 effect={'fade'}
-                // modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay]}
-                modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
+                modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay]}
                 className='mySwiper'
             >
                 <SwiperSlide>
@@ -74,7 +64,6 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
             </Swiper>
-
         </div>
     );
 };

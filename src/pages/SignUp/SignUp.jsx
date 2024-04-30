@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
-// import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
     return (
         <div>
+            <Helmet>
+                <title>Sign Up | Craftopia</title>
+            </Helmet>
             <div className="font-inter container mx-auto md:my-10">
                 <div className='md:w-[70%] rounded-3xl mx-auto bg-cover shadow-xl' style={{ backgroundImage: 'url(https://i.ibb.co/JjQsrnT/artpencil.jpg)' }}>
                     <div className="md:flex md:justify-between">
