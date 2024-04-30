@@ -46,8 +46,8 @@ const LoginForm = ({ navigateToHomePage }) => {
                             </div>
                         </div>
                     </label>
-                    <label className='flex items-center bg-[#ECECEC] p-4 rounded-lg'>
-                        <div className="flex items-center  gap-7">
+                    <label className='flex justify-between items-center bg-[#ECECEC] p-4 rounded-lg border-2'>
+                        <div className="flex  items-center  gap-7">
                             <FaKey className="text-2xl" />
                             <div>
                                 {/* <p className="text-xs">Password:</p> */}

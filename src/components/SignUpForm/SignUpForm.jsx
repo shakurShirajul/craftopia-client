@@ -54,7 +54,8 @@ const SignUpForm = () => {
                     updateUser(name, url)
                         .then(() => {
                             successToast('Registration Successful')
-                            console.log("Shakur");
+                            // console.log("Shakur");
+                            console.log(url);
                             data.target.reset();
                             navigateToHomePage();
                         }).catch((error) => {

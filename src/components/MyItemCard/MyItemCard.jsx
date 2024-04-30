@@ -34,7 +34,7 @@ const MyItemCard = ({ craftItem, handleDeleteButton }) => {
                         <h1 className="text-[#0B6EFE] text-xl font-medium"><span>$ {price}</span></h1>
                     </div>
                     <div className="flex justify-between py-2 border-y-2 border-dashed">
-                        <h1> {customization}</h1>
+                        <h1><span className="font-semibold">Customization: </span> {customization}</h1>
                         <h1 className="">{stock}</h1>
                     </div>
                     <div className="flex gap-5 mt-2">

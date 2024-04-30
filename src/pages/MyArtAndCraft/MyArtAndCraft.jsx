@@ -40,7 +40,7 @@ const MyArtAndCraft = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/item/${craftItem._id}`, {
+                fetch(`https://craftopia-server-ruddy.vercel.app/item/${craftItem._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
