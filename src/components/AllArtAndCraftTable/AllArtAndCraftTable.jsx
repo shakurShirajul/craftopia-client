@@ -49,9 +49,7 @@ const AllArtAndCraftTable = ({ artAndCraftItems }) => {
                                 </tr>
                             )
                         }
-
                     </tbody>
-
                 </table>
             </div>
         </div>

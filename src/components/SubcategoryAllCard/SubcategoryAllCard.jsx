@@ -15,7 +15,6 @@ const SubcategoryAllCard = () => {
 
     const filterData = datas.filter(data => data.subcategory_Name === id);
 
-    console.log(datas);
     return (
         <div>
             <Helmet>

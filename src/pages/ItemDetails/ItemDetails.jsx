@@ -16,7 +16,7 @@ const ItemDetails = () => {
             .then(data => setCraftItem(data))
         setLoading(false)
     }, [])
-    
+
     return (
         <div className='font-inter'>
             <Helmet>

@@ -22,7 +22,7 @@ const Login = () => {
         socialMedia()
             .then(result => {
                 const loggedInUser = result.user;
-                console.log(loggedInUser.photoURL);
+                // console.log(loggedInUser.photoURL);
                 successToast('LOGIN SUCCESSFUL')
                 navigateToHomePage();
             })

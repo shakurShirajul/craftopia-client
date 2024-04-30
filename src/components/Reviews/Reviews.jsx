@@ -8,7 +8,7 @@ const Reviews = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
-    console.log(reviews);
+    
     return (
         <div className="my-16">
             <h1 className="text-center font-rancho text-6xl my-5">What People Are Saying</h1>

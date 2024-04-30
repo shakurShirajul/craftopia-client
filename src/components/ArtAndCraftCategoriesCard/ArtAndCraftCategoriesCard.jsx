@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 const ArtAndCraftCategoriesCard = ({ item }) => {
 
     const navigate = useNavigate();
+    
     const handleSubmit = () =>{
         navigate(`/subcategory/itemcard/${item.subcategory_Name}`)
     }
+
     return (
         <div onClick={handleSubmit}>
             <div className="card w-96 rounded-2xl shadow-xl font-roboto">

@@ -11,7 +11,6 @@ const ArtAndCraftCategories = () => {
 
     const displayItems = subcatgoryItems.slice(0, 6);
 
-    console.log(subcatgoryItems);
     return (
         <div className="my-16">
             <div>

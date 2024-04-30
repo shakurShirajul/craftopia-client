@@ -75,9 +75,9 @@ const SignUpForm = () => {
                     <div className="flex items-center gap-7">
                         <MdDriveFileRenameOutline className="text-2xl" />
                         <div>
-                            <p className="text-xs">Name: </p>
+                            {/* <p className="text-xs">Name: </p> */}
                             <div>
-                                <input type='text' placeholder='example name' required name="name"
+                                <input type='text' placeholder='Your Name' required name="name"
                                     className='bg-[#ECECEC] text-base focus:outline-none w-full'
                                 />
                             </div>
@@ -88,9 +88,9 @@ const SignUpForm = () => {
                     <div className="flex items-center gap-7">
                         <MdEmail className="text-2xl" />
                         <div>
-                            <p className="text-xs">Email:</p>
+                            {/* <p className="text-xs">Email:</p> */}
                             <div>
-                                <input type='email' placeholder='example@gmail.com' required name="email"
+                                <input type='email' placeholder='Your Email' required name="email"
                                     className='bg-[#ECECEC] text-base focus:outline-none w-full'
                                 />
                             </div>
@@ -101,9 +101,9 @@ const SignUpForm = () => {
                     <div className="flex items-center gap-7">
                         <MdAddPhotoAlternate className="text-2xl" />
                         <div>
-                            <p className="text-xs">Photo Url:</p>
+                            {/* <p className="text-xs">Photo Url:</p> */}
                             <div>
-                                <input type='url' placeholder='example.com/image.jpg' required name="url"
+                                <input type='url' placeholder='Photo URL' required name="url"
                                     className='bg-[#ECECEC] text-base focus:outline-none w-full'
                                 />
                             </div>
@@ -114,9 +114,9 @@ const SignUpForm = () => {
                     <div className="flex items-center gap-7">
                         <FaKey className="text-2xl" />
                         <div>
-                            <p className="text-xs">Password:</p>
+                            {/* <p className="text-xs">Password:</p> */}
                             <input
-                                placeholder='***********'
+                                placeholder='Password'
                                 type={showPassword ? 'text' : 'password'}
                                 required
                                 name="password"

@@ -17,7 +17,6 @@ const SubCatgoryCard = ({ data }) => {
     } = data;
 
     const handleNavigateDetailsPage = () =>{
-        console.log("shakur")
         navigate(`/subcategory/card/details/${_id}`)
     }
 

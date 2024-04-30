@@ -33,11 +33,11 @@ const LoginForm = ({ navigateToHomePage }) => {
                         <div className="flex items-center  gap-7">
                             <MdEmail className="text-2xl" />
                             <div className=''>
-                                <p className="text-xs">Email:</p>
+                                {/* <p className="text-xs">Email:</p> */}
                                 <div className=''>
                                     <input
                                         type='email'
-                                        placeholder='example@gmail.com'
+                                        placeholder='Email'
                                         required
                                         name="email"
                                         className='bg-[#ECECEC] text-base focus:outline-none w-full'
@@ -50,9 +50,9 @@ const LoginForm = ({ navigateToHomePage }) => {
                         <div className="flex items-center  gap-7">
                             <FaKey className="text-2xl" />
                             <div>
-                                <p className="text-xs">Password:</p>
+                                {/* <p className="text-xs">Password:</p> */}
                                 <input
-                                    placeholder='***********'
+                                    placeholder='Password'
                                     type={showPassword ? 'text' : 'password'}
                                     required
                                     name="password"
