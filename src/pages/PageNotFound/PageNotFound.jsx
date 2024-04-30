@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import notFoundImage from '../../assets/images/404PageNotFound.jpg'
+import { FaSadTear } from "react-icons/fa";
 
 const PageNotFound = () => {
     return (
         <div className='w-screen h-screen font-roboto'>
             <div className='m-auto w-full h-full flex items-center justify-center'>
                 <div className='space-y-10'>
-                    <h1 className='font-rancho text-9xl'>404 Page Not Found</h1>
+                    <h1 className='flex gap-2 font-rancho text-4xl md:text-9xl'><span><FaSadTear /></span>404 Page Not Found</h1>
                     <div className='flex items-center justify-center'>
                         <Link to="/">
                             <button
