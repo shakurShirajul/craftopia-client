@@ -6,21 +6,23 @@ import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
 
-    const [theme, setTheme] = useState('light')
-    const PLACES = ['top', 'top-start', 'top-end', 'right', 'right-start', 'right-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end']
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('theme') || 'light';
+    });
 
     const handleTheme = (event) => {
         if (event.target.checked) {
             setTheme('dark')
+            localStorage.setItem('theme', 'dark');
         } else {
             setTheme('light')
+            localStorage.setItem('theme', 'light');
         }
     }
 
     useEffect(() => {
-        document.querySelector('html').setAttribute('data-theme', theme)
-    }, [theme])
-
+        document.querySelector('html').setAttribute('data-theme', theme);
+    }, [theme]);
 
     const { user, logOut } = useContext(AuthContext);
 
@@ -62,6 +64,7 @@ const Navbar = () => {
                             <label className='cursor-pointer grid place-items-center'>
                                 <input
                                     type='checkbox'
+                                    checked={theme === 'dark'}
                                     className='toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2'
                                     onChange={handleTheme}
                                 />
