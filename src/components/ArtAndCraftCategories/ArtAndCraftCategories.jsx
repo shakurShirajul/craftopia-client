@@ -4,7 +4,7 @@ import ArtAndCraftCategoriesCard from "../ArtAndCraftCategoriesCard/ArtAndCraftC
 const ArtAndCraftCategories = () => {
     const [subcatgoryItems, setSubcategoryItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/subcategory/items')
+        fetch('https://craftopia-server-ruddy.vercel.app/subcategory/items')
             .then(res => res.json())
             .then(data => setSubcategoryItems(data))
     }, [])

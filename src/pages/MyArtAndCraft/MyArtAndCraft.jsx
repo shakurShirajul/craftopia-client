@@ -14,7 +14,7 @@ const MyArtAndCraft = () => {
     const { user, successToast } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/items')
+        fetch('https://craftopia-server-ruddy.vercel.app/items')
             .then(res => res.json())
             .then(data => {
                 const filterData = data.filter(item => (item.email === user.email))

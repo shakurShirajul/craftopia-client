@@ -43,7 +43,6 @@ const SubCatgoryCard = ({ data }) => {
                     <div className="pt-2">
                         <button
                             className="py-3 rounded-lg text-white bg-[#0B6EFE] hover:border hover:border-[#0B6EFE] hover:bg-white hover:text-[#0B6EFE] font-medium px-5 w-full"
-                            // onClick={() => handleDeleteButton(craftItem)}
                             onClick={()=>handleNavigateDetailsPage()}
                         >
                             View Details

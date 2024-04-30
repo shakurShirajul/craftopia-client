@@ -11,7 +11,7 @@ const ItemDetails = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`)
+        fetch(`https://craftopia-server-ruddy.vercel.app/item/${id}`)
             .then(res => res.json())
             .then(data => setCraftItem(data))
         setLoading(false)

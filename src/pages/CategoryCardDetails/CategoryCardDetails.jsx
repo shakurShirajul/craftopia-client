@@ -9,7 +9,7 @@ const CategoryCardDetails = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/subcategory/items/${id}`)
+        fetch(`https://craftopia-server-ruddy.vercel.app/subcategory/items/${id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
         setLoading(false)

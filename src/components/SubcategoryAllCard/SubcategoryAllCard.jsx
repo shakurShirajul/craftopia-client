@@ -8,7 +8,7 @@ const SubcategoryAllCard = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/subcategory/items`)
+        fetch(`https://craftopia-server-ruddy.vercel.app/subcategory/items`)
             .then(res => res.json())
             .then(data => setDatas(data))
     }, [])
