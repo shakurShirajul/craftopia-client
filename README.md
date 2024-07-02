@@ -1,6 +1,6 @@
 # Craftoopia
 
-[Craftoopia](https://craftoopia.netlify.app/) is a beautifully crafted website showcasing a variety of creative projects and designs. Built with a modern front-end stack, Craftoopia aims to inspire and empower creators by providing a visually appealing platform for showcasing their work.
+[Craftoopia](https://craftoopia.netlify.app/) 
 
 ## Features
 
