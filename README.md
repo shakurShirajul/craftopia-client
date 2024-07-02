@@ -1,6 +1,6 @@
 # Craftoopia
 
-[Craftoopia](https://craftoopia.netlify.app/) 
+## Live Link: [Craftoopia](https://craftoopia.netlify.app/) 
 
 ## Features
 
