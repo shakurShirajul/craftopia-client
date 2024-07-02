@@ -46,7 +46,7 @@ The website is designed to be responsive across all devices, including mobile, t
    git clone https://github.com/shakurShirajul/craftopia-client.git
 2. Navigate to the project directory:
    ```bash
-   cd craftoopia-client
+   cd craftopia-client
 3. Install dependencies:
    ```bash
    npm install
