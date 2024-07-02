@@ -18,7 +18,7 @@ Craftoopia addresses several challenges faced by creative individuals and commun
    
 2. **Fragmented Showcases**: Creative work is often scattered across different platforms, making it hard to find and appreciate in one place. Craftoopia consolidates these showcases into a single, easy-to-navigate website.
    
-3. **Engagement and Interaction**: Engaging with other creators and their work is crucial for growth and collaboration. Craftoopia encourages interaction through its user-friendly interface, making it easy to explore and appreciate different projects.
+3. **Engagement and Interaction**: Engaging with other creators and their work is crucial for growth and collaboration. Craftoopia encourages interaction through its user-friendly interface, making it easy to explore and appreciate different art and crafts.
 
 ## Features
 
