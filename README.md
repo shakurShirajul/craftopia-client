@@ -53,6 +53,3 @@ The website is designed to be responsive across all devices, including mobile, t
 4. Start the development server:
    ```bash
    npm run dev
-
-
-
