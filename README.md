@@ -1,4 +1,4 @@
-# Craftoopia
+# Website Name: Craftopia
 
 ## Live Link: [Craftoopia](https://craftoopia.netlify.app/) 
 
@@ -43,10 +43,10 @@ The website is designed to be responsive across all devices, including mobile, t
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/craftoopia.git
+   git clone https://github.com/shakurShirajul/craftopia-client.git
 2. Navigate to the project directory:
    ```bash
-   cd craftoopia
+   cd craftoopia-client
 3. Install dependencies:
    ```bash
    npm install
