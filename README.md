@@ -22,13 +22,13 @@ Craftoopia addresses several challenges faced by creative individuals and commun
 
 ## Features
 
--	### 1. User Authentication and Protected Routes
+-	### User Authentication and Protected Routes
 Craftoopia provides a secure user authentication system that includes email/password login, social media login options and protected routes for adding and viewing personal craft items. This ensures that only authenticated users can add, view, and manage their craft items.
 
--	### 2. Comprehensive Craft Item Management
+-	### Comprehensive Craft Item Management
 Users can add new craft items with detailed information, such as image URL, item name, subcategory name, description, price, rating, customization options, processing time, and stock status. They can also update and delete their items, ensuring complete control over their personal collection.
 
--	### 3. Responsive and User-Friendly Design
+-	### Responsive and User-Friendly Design
 The website is designed to be responsive across all devices, including mobile, tablet, and desktop views. The interface is intuitive and easy to navigate, providing a seamless user experience.
 
 
